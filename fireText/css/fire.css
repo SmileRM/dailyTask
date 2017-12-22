@@ -1,0 +1,24 @@
+.text{
+    fill:url("#p-fire"); /*fill填满，铺满*/
+    stroke:#330000;  /*文本轮廓的线条颜色*/
+    stroke-width:8; /*文本轮廓的厚度，线条宽度*/
+    stroke-opacity: .5;
+    font-size:16em;
+    font-weight:600;
+}
+
+/*其他的样式*/
+html,body{
+   height:100%;
+}
+body{
+    background:#000;
+    text-transform: uppercase;
+    margin:0;
+}
+svg{
+    position:absolute;
+    width:100%;
+    height:100%;
+    margin:0;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>火焰背景遮罩字</title>
+    <link rel="stylesheet" href="css/fire.css">
+</head>
+<body>
+   <!-- SVG是可缩放矢量图形;	创建一个SVG文档片段 -->
+   <!-- viewBox="点"seen"这个SVG绘图区域。由空格或逗号分隔的4个值。 (min x, min y, width, height)"
+    viewBox="0,0,40,30"相当于在SVG上圈出了坐标(0,0)，宽40，高30的一个框框，
+    然后把这个框框，连同框框里的元素一起保持比例放大到整个SVG大小
+  -->
+    <svg viewBox="0 0 1000 300">
+        <!--Pattern	定义坐标，你想要的视图显示和视图的大小。然后添加到您的模式形状。该模式命中时重复视图框的边缘（可视范围）-->
+        <!--id="用于引用这个模式的唯一ID。"必需的。
+            viewBox="各点"看到"这个SVG绘图区域。由空格或逗号分隔的4个值。(min x, min y, width, height)"
+            patternUnits="userSpaceOnUse'或'objectBoundingBox"。第二个值X，Y，width，height 一个会使用模式对象的边框的小部分，单位（％）。"
+            patternContentUnits="'userSpaceOnUse'或 'objectBoundingBox'"
+            patternTransform="允许整个表达式进行转换"
+            width="模式平铺的宽度（默认为100％）"
+            height="模式平铺的高度（默认为100％）"
+            x="模式的偏移量，来自左上角（默认为0）"
+            y="模式的偏移量，来自左上角（默认为0）"
+            xlink:href="另一种模式，其属性值是默认值以及任何子类可以继承。递归"
+            -->
+        <pattern id="p-fire"
+                 viewBox="30 100 186 200"
+                 patternUnits="userSpaceOnUse"
+                 width="216" height="200"
+                 x="-70" y="35">
+            <!--image定义图像-->
+            <!--
+            xlink:href="图像的路径". 必须.
+            width="图像的宽度". 必须.
+            height="图像的高度". 必须.
+            x="图像的左上角的x轴坐标"
+            y="图像的左上角的y轴坐标"
+            -->
+        <image xlink:href="img/fire.gif" width="256" height="300"></image>
+        </pattern>
+
+        <!-- Text 定义一个文本-->
+      <!--
+        x="列表的X -轴的位置。在文本中在第n个字符的位置在第n个x轴。如果后面存在额外的字符，耗尽他们最后一个字符之后放置的位置。 0是默认"
+        y="列表的Y轴位置。（参考x）0是默认"
+        dx="在字符的长度列表中移动相对最后绘制标志符号的绝对位置。（参考x）"
+        dy="在字符的长度列表中移动相对最后绘制标志符号的绝对位置。（参考x）"
+        -->
+        <text text-anchor="middle"
+              x="50%"
+              y="50%"
+              dy=".35em"
+              class="text"
+        >
+            hello
+        </text>
+
+    </svg>
+<!--
+步骤讲解：先不急着设计它的样式细节，先搭结构
+ 1、SVG矢量图形,里面包括可见视图pattern（包含火焰图片image）、文本text
+ 2、导入图片xlink，设置宽高；此时看不见图片（靠想象）
+ 3、用viewBox="0 0 100 100",表示坐标为(0,0)的点出发，宽高为100的框框，然后将该框框内锁定的元素（就是刚才的火焰）放大至整个pattern；设置pattern宽高，x，y是设置位置
+ 4、在css中设置样式，用pattern铺满文字；(fill)
+ 5、然后在svg中设置框框选中整个字，放大至svg大小；(viewBox)
+
+-->
+
+</body>
+</html>

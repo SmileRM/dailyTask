@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>鼠标移动花瓣效果</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        #myCanvas{
+            border:1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+  <canvas id="myCanvas" width="1200" height="600"></canvas>
+  <script type="text/javascript">
+      var mycanvas=document.getElementById("myCanvas");
+      var ctx=mycanvas.getContext("2d");
+      var cirArr=[];   //存放画圆需要的参数，按一个个对象方式存储在数组里
+      function mycircle(x,y,r,color){
+          this.x = x;
+          this.y = y;
+          this.r = r;
+
+          //颜色的取值范围
+          this.color="rgba("+(parseInt(Math.random()*240)+9)+","+(parseInt(Math.random()*220)+18)+",220,0.8)";
+
+          //随机方向
+          this.dx=Math.random()*12-7;
+          this.dy=Math.random()*12-7;
+
+           //将this对象存放到数组里
+          cirArr.push(this);
+      }
+
+      //画圆
+      mycircle.prototype.draw=function(){
+          ctx.beginPath();  //在互补中开始子路径的一个新的集合；
+          // beginPath()丢弃任何当前定义的路径，并且开始一条新的路径；它把当前的点设置为(0,0);
+          ctx.fillStyle=this.color;
+          ctx.arc(this.x,this.y,this.r,0,Math.PI*2,true);
+          ctx.fill();
+      }
+
+      //许多圆并且消失的效果
+      mycircle.prototype.update=function(){
+           this.x += this.dx;
+           this.y += this.dy;
+           this.r--;
+           if(this.r<0){
+               for(var i=0;i<cirArr.length;i++){
+                     if(cirArr[i] === this){
+                          cirArr.splice(i,1); //splice(2,3,"mybox"); 表示删除从index为2开始的3个元素；并用mybox（可选）替代该元素
+                     }
+               }
+               return false;
+           }
+          return true;
+      }
+
+
+      mycanvas.onmousemove=function(event){
+          new mycircle(event.clientX,event.clientY,30,"orange");
+      }
+
+      //定时器
+      setInterval(function(){
+          ctx.clearRect(0,0,1200,600);
+          for(var i=0;i<cirArr.length;i++){
+              cirArr[i].update() && cirArr[i].draw();
+          }
+      },20);
+  </script>
+
+</body>
+</html>

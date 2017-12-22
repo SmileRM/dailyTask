@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <!--  引入jQuery脚本语言，路径一定要正确-->
+    <title>小方块移动</title>
+    <style type="text/css">
+       *{
+           padding:0;
+           margin:0;
+       }
+        .box-show{
+            width:100%;
+            height:500px;
+            background:black;
+            position:absolute;
+            overflow: hidden;
+            top:20%;
+        }
+        ul{
+            width:100%;
+            height:500px;
+            position:absolute;  /*和外面的大盒子box-show同样大小，位置相同。让小的li位置偏下，设置bottom:-140px;然后大盒子设置超出部分隐藏。*/
+            top:0;
+            /*z-index:3;*/
+        }
+        ul li{
+            width:100px;
+            height:100px;
+            position:absolute;
+            background:rgba(197,197,197,0.2);
+            list-style:none;
+            bottom: -140px;
+            animation:mymove 25s linear infinite;
+        }
+        ul li:hover{
+            background:rgba(197,197,197,0.6);
+            animation-play-state:paused;  /* 动画暂停；running表示继续播放动画*/
+        }
+        ul li:focus{
+            display:none;
+        }
+       ul li:nth-child(1){
+           width:80px;
+           height:80px;
+           left:10%;
+           animation-delay: 4s;
+       }
+       ul li:nth-child(2){
+            width:30px;
+            height:30px;
+            left:20%;
+           animation-delay: 7s;
+        }
+        ul li:nth-child(3){
+            width:60px;
+            height:60px;
+            left:30%;
+            animation-delay: 10s;
+        }
+        ul li:nth-child(4){
+            width:32px;
+            height:32px;
+            left:40%;
+            animation-delay: 6s;
+        }
+        ul li:nth-child(5){
+            width:72px;
+            height:72px;
+            left:50%;
+            animation-delay: 2s;
+
+        }
+        ul li:nth-child(6){
+            width:60px;
+            height:60px;
+            left:60%;
+            animation-delay: 13s;
+
+        }
+        ul li:nth-child(7){
+            width:56px;
+            height:56px;
+            left:70%;
+            animation-delay: 6s;
+        }
+        ul li:nth-child(8){
+            width:69px;
+            height:69px;
+            left:80%;
+            animation-delay: 17s;
+
+        }
+        ul li:nth-child(9){
+            width:150px;
+            height:150px;
+            left:90%;
+            animation-delay: 16s;
+
+        }
+        ul li:nth-child(10){
+            width:35px;
+            height:35px;
+            left:100%;
+            animation-delay: 6s;
+        }
+
+        @keyframes mymove {
+            0%{
+                transform: translate(0,0);
+            }
+            100%{
+                transform: rotate(800deg)  translate(-800px,-200PX);
+            }
+        }
+        @-moz-keyframes mymove {
+            0%{
+                transform: translate(0,0);
+            }
+            100%{
+                transform: rotate(800deg)  translate(-800px,-200PX);
+            }
+        }
+
+
+
+        form{
+            position:absolute;  /*注意：z-index属性设置要求元素的position必须是absolute、relative或者*/
+            z-index:99; /*注意层叠，不设置z-index，文本框就无法获得焦点*/
+            left:45%;
+            top:30%;
+        }
+        form input{
+            text-align:center;
+        }
+        form input[type="submit"]{
+              width:100%;
+        }
+
+        .mbox .welcome{
+            position:absolute;
+            top:230px;
+            color: white;
+            font-size:36px;
+            font-weight:360;
+            left:45%;
+            z-index:66;
+        }
+        .btn-success{
+            animation:myfont 2s 1s forwards;
+        }
+        @keyframes myfont {
+            0%{
+                font-size:36px;
+                font-weight:360;
+                color:white;
+                top:230px;
+            }
+            100%{
+                font-size:70px;
+                font-weight:500;
+                color:#f8674a;
+                top:380px;
+            }
+        }
+    </style>
+</head>
+<body>
+  <div class="mbox">
+      <p class="welcome">Welcome</p>
+      <div class="box-show">
+          <form>
+             <p><input type="text" name="username" placeholder="username"/></p>
+             <p> <input type="password" name="pwd" placeholder="password"/></p>
+             <p> <input type="submit" value="Login" id="submit"></p>
+          </form>
+          <ul class="box-move">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+          </ul>
+      </div>
+  </div>
+  <script type="text/javascript">
+
+     $("#submit").click(
+         function(event){
+             event.preventDefault();  //取消元素默认执行的事件
+             $("form").fadeOut(1000);  //淡出效果
+             $(".welcome").addClass("btn-success"); //给welcom添加新的样式
+         }
+     );
+
+  </script>
+</body>
+</html>
