@@ -40,7 +40,7 @@
 
       //画圆
       mycircle.prototype.draw=function(){
-          ctx.beginPath();  //在互补中开始子路径的一个新的集合；
+          ctx.beginPath();  //在画布中开始子路径的一个新的集合；
           // beginPath()丢弃任何当前定义的路径，并且开始一条新的路径；它把当前的点设置为(0,0);
           ctx.fillStyle=this.color;
           ctx.arc(this.x,this.y,this.r,0,Math.PI*2,true);
