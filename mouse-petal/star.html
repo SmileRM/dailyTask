@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>鼠标移动五角星效果</title>
+    <style type="text/css">
+       *{
+           padding:0;
+           margin:0;
+       }
+        #canvas{
+            border:1px  solid black;
+        }
+    </style>
+</head>
+<body>
+  <canvas id="canvas" width="1000" height="500"></canvas>
+
+  <script type="text/javascript">
+
+     /*********简单绘制五角星********/
+ /*    var canvas = document.getElementById("canvas");
+     var ctx = canvas.getContext('2d');
+     ctx.fillStyle = 'rgb(255,0,0)';   //填充颜色
+     ctx.lineWidth = 5;                //线条宽度
+    // ctx.strokeRect(0,0,1000,1000);  //绘制一个矩形边框
+     //绘图的起始点，也就是五角星的顶点坐标
+     var x=100,y=100;
+     //线条绘制五角星
+     for(var i=0;i<3;i++)
+     {
+         ctx.beginPath();
+    //五角星边的长度为100px，x1、h2为五角星的底部点坐标偏差值，x2、h2为五角星上部点偏差值
+         var x1 = 100*Math.sin(Math.PI/10);
+         var h1 = 100*Math.cos(Math.PI/10);
+         /!*var x2 = 50;*!/
+         var h2 = 50*Math.tan(Math.PI/5);
+         ctx.lineTo(x+x1,y+h1);
+         ctx.lineTo(x-50,y+h2);
+         ctx.lineTo(x+50,y+h2);
+         ctx.lineTo(x-x1,y+h1);
+         ctx.lineTo(x-x1,y+h1);
+         ctx.lineTo(x,y);
+         ctx.closePath();
+         ctx.fill();
+         x=(i+2)*100;
+         y=100;
+         ctx.moveTo(x,y);
+     }*/
+     /*******简单绘制五角星结束*******/
+
+
+     /*鼠标移动五角星特效*/
+       canvas = document.getElementById("canvas");
+       ctx = canvas.getContext("2d");
+       ctx.lineWidth = 2;
+        var petalArr=[];
+
+       function mypetal(cx,cy,l){
+           //随机大圆半径
+           this.l=l;  //控制五角星的大小
+           this.r = Math.random() * l + l;
+           this.x = cx;
+           this.y = cy;
+           //随机旋转角0-360
+           this.a= Math.random() * 180;
+
+           //随机方向
+           this.dx=Math.random()*12-10;
+           this.dy=Math.random()*12-10;
+
+          petalArr.push(this);
+       }
+
+       mypetal.prototype.draw= function() {
+
+                ctx.globalAlpha = 0.6;
+                outerR=this.r;
+                innnerR=this.r/2;
+                rot=this.a;
+                x=this.x;
+                y=this.y;
+               ctx.beginPath();
+               //同心圆绘制五角星
+               for(var i = 0;i < 5;i ++){
+                   ctx.lineTo(Math.cos((18 + i * 72 - rot)/180 *Math.PI)*outerR + x,-Math.sin((18 + i * 72 - rot)/180*Math.PI)*outerR + y);
+                   ctx.lineTo(Math.cos((54 + i * 72 - rot)/180 *Math.PI)*innnerR + x,-Math.sin((54 + i * 72 - rot)/180*Math.PI)*innnerR + y);
+               }
+               ctx.fillStyle = "#fd5";
+               ctx.strokeStyle = "#fb5";
+               ctx.lineWidth = 3;
+               ctx.lineJoin = "round";
+
+               //执行
+               ctx.fill();
+               ctx.stroke();
+
+       }
+
+        mypetal.prototype.update=function(){
+                //随机大圆半径
+              this.r = Math.random() * this.l + this.l;
+                //随机旋转角0-360
+              this.a = Math.random() * 360;
+              this.x+=this.dx;
+              this.y+=this.dy;
+              this.l--;
+            if(this.l<0){
+                for(var i=0;i<petalArr.length;i++){
+                    if(petalArr[i]===this){
+                      petalArr.splice(i,1);
+                    }
+                }
+                return false;
+            }
+            return true;
+        }
+
+        canvas.onmousemove=function(event){
+            new mypetal(event.clientX,event.clientY,16);
+        }
+
+       //定时器
+       var time=setInterval(function(){
+           ctx.clearRect(0,0,1200,600);
+           for(var i=0;i<petalArr.length;i++){
+               petalArr[i].update() && petalArr[i].draw();
+           }
+       },50);
+
+        //点击页面，消除定时器；五角星静止
+       canvas.onclick=function(){
+               clearInterval(time);
+       }
+     /*鼠标移动五角星特效结束*/
+
+
+         /*****绘制花瓣*****/
+/*        canvas = document.getElementById("canvas");
+        ctx = canvas.getContext("2d");
+             ctx.beginPath();
+             //绘制一片花瓣
+             ctx.moveTo(200, 180);  //起始点坐标
+             ctx.bezierCurveTo(232, 332, 366, 223,400, 250);
+             //前四个参数分两组控制线条的弧度，曲线等；最后两个参数是控制结束点位置
+             ctx.moveTo(200, 180);
+             ctx.bezierCurveTo(280, 91, 411, 183, 400, 250);
+             ctx.moveTo(160, 180);  //起始点坐标
+             ctx.bezierCurveTo(291, 147, 230,91,234, 20);
+             //前四个参数分两组控制线条的弧度，曲线等；最后两个参数是控制结束点位置
+             ctx.moveTo(160, 180);
+             ctx.bezierCurveTo(109, 151, 120, 54, 234, 20);
+             ctx.globalAlpha=0.6;
+
+             //绘制阴影
+             ctx.shadowOffsetX=5;    //设置或返回形状与阴影的水平距离，x轴偏移量
+             ctx.shadowOffsetY=3;    //垂直距离；Y轴偏移量
+             ctx.shadowBlur=4;  //设置或返回阴影的模糊级数
+             ctx.shadowColor="#f17699";   //设置或返回阴影的颜色
+
+             ctx.fillStyle="#fa4679";
+             ctx.fill();
+             ctx.strokeStyle="#f17699";
+             ctx.stroke();*/
+       /******** 绘制花瓣结束*******/
+
+
+     /**********旋转的五角星*********/
+     /* var canvas = document.getElementById("canvas");
+      var context = canvas.getContext("2d");
+      //设置边框样式以及填充颜色
+      context.lineWidth = 1;
+      context.fillStyle = "red";
+      context.strokeStyle = "red";
+
+      /!* @length: 边长，逐渐变大
+       * @offset: 偏移位置，逐渐变大
+       * @offsetX: 横轴额外偏移，根据角度计算
+       * @offsetY: 竖轴额外偏移，根据角度计算
+       * @degree: 旋转角度，每次变化18度
+       *!/
+      var length = 2,
+          offset = 8,
+          degree = 0;
+      var halfWidth = canvas.width / 2,
+          halfHeight = canvas.height / 2;
+      for (var num = 0; num < 60; num++) {
+          length *= 1.05;
+          offset *= 1.06;
+          offsetX = offset * Math.cos(degree / 180 * Math.PI);
+          offsetY = offset * Math.sin(degree / 180 * Math.PI)
+          degree -= 18;
+
+          context.beginPath();
+          //设置是个顶点的坐标，根据顶点制定路径
+          for (var i = 0; i < 5; i++) {
+              context.lineTo(Math.cos((degree + i*  72) / 180 * Math.PI) * length + offsetX + halfWidth,
+                  -Math.sin((degree + i * 72) / 180 * Math.PI) * length + offsetY + halfHeight);
+              context.lineTo(Math.cos((degree + 36 + i * 72) / 180 * Math.PI) * length * 0.4 + offsetX  + halfWidth,
+                  -Math.sin((degree + 36 + i * 72) / 180 * Math.PI) * length * 0.4 + offsetY + halfHeight);
+          }
+          context.closePath();
+          context.fill();
+          context.stroke();
+      }
+
+*/
+      /*旋转的五角星结束*/
+  </script>
+
+</body>
+</html>
