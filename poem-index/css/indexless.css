@@ -1,0 +1,192 @@
+*{
+    padding:0;
+    margin:0;
+}
+/*body{
+    overflow-x: hidden;
+}*/
+header .header_logo {
+    width:150px;
+    margin:20px auto;
+}
+header .header_logo img{
+    width:100%;
+    height:100%;
+}
+header .header_left,.header_right{
+    display:none;
+}
+.menu{
+    color:white;
+    background:black;
+    font-weight:600;
+    padding:12px 5px;
+    position:fixed;
+    right:10px;
+    top:10px;
+    z-index:20;
+}
+.img_scroll{
+    width:100%;
+    height:500px;
+    overflow:hidden;
+}
+.img_scroll .img_box a{
+    display:block;
+    width:20%;
+    height:500px;
+}
+.con1{
+    width:96%;
+    margin:100px auto;
+    min-width:300px;
+}
+.con1 .con_right{
+    margin-top:30px;
+}
+.con .con_left,.con .con_right{
+    width:100%;
+}
+.con img{
+    width:100%;
+    height:300px;
+    min-width:300px;
+}
+.con1 .con_left{
+    color:rgb(130,130,130);
+}
+.con1 .con_left p:nth-child(2){
+    font-size:1.1rem;
+    margin-top:3px;
+}
+.con1 .con_left span{
+    display:block;
+    margin:40px 0;
+    font-size:0.9rem;
+    line-height:26px;
+}
+.con1 .con_left .cleft_title{
+    font-size:2.2rem;
+    color:black;
+    font-weight: 600;
+}
+.con2{
+    width:100%;
+    height:460px;
+    margin:0 auto;
+}
+.con2 .con_right{
+    float:right;
+}
+.con2 .con_left,.con2 .con_middle,.con2 .con_right{
+    width:33.3%;
+    float:left;
+    position:relative;
+
+}
+.con2 p{
+    color:rgb(140,140,140);
+    font-size:1.2rem;
+    text-align:center;
+    margin-bottom: 36px;
+
+}
+/*.con2 .con_left:hover::after,.con2 .con_middle:hover::after,.con2 .con_right:hover::after{
+   !* opacity: 0.8;
+    filter(alpha=80);*!
+    content:'';
+    width:100%;
+    height:100%;
+    background:#eee;
+    opacity:0.2;
+    position:absolute;
+    top:0;
+    left:0;
+!*    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    transform: rotate(30deg);*!
+
+}*/
+.con2  .myshadow span:last-child{
+    font-weight:600;
+    font-size:1.6rem;
+    color:white;
+    position:absolute;
+    display:block;
+    width:100%;
+    text-align:center;
+    top:135px;
+    transition:all 1s ease-in-out;
+}
+.con_title{
+    font-size:1.6rem;
+    text-align:center;
+    margin-bottom:30px;
+    font-weight:600;
+}
+.con3,.con4{
+    width:60%;
+    margin:100px auto 0 auto;
+    min-width:300px;
+}
+.con3 .con_left,.con4 .con_left{
+    margin-bottom: 50px;
+}
+.con3 .imgbox,.con4 .imgbox{
+    overflow: hidden;
+}
+.con3 > div img,.con4 > div img{
+    width:100%;
+    height:230px;
+    transition:all 0.8s;
+.}
+.con3 > div img:hover,.con4 > div img:hover{
+    transform:scale(1.1);
+}
+.con_left > p:first-child,.con_right> p:first-child{
+    font-size:1.2rem;
+    font-weight:600;
+}
+.con_left > p:nth-of-type(2), .con_right > p:nth-of-type(2){
+    color:rgb(130,130,130);
+    margin:5px 0 25px 0;
+}
+.con_left > span,.con_right > span{
+    font-size:0.8rem;
+    color:rgb(130,130,130);
+    cursor:default;  /*鼠标移动上去变箭头，不可编辑*/
+}
+.right_menu{
+    width:100%;
+    height:100%;
+    background:black;
+    color:white;
+    font-size:1.3rem;
+    font-weight:600;
+    line-height:50px;
+    position:absolute;
+    top:0;
+    left:100%;
+    z-index:88;  /*显示在菜单按钮层之上*/
+}
+.right_menu ul{
+    width:90%;
+    padding:30px;
+}
+.right_menu span{
+    font-size:2rem;
+    position:absolute;
+    right:20px;
+    top:0;
+    cursor:default;
+}
+.right_menu ul li a{
+    text-decoration: none;
+    color:white;
+}
+.right_menu ul li a:hover{
+    color:#f8674a;
+    cursor: pointer;
+}

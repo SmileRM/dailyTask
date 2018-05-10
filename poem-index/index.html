@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>考一考首页</title>
+    <link href="css/kyk.css" rel="stylesheet" type="text/css">
+    <link media="screen and (min-width:1160px)" href="css/index.css" rel="stylesheet" type="text/css">
+    <link media="screen and (max-width:1160px)"  href="css/indexless.css" rel="stylesheet" type="text/css">
+ <!--   <style type="text/css">
+    @media screen and (max-width: 500px){
+
+     }
+    </style>-->
+
+</head>
+<body>
+    <header class="k_header">
+        <div class="header_logo">
+            <img src="images/logo.png">
+        </div>
+        <div class="header_left">
+            <ul>
+                <li><a href="javascript:;">首页</a></li>
+                <li><a href="#">一级</a></li>
+                <li><a href="#">二级</a></li>
+                <li><a href="#">三级</a></li>
+                <li><a href="#">三级</a></li>
+            </ul>
+        </div>
+        <div class="header_right">
+           <span>登录</span>
+            &nbsp;&nbsp;|
+           <span>注册</span>
+        </div>
+        <span class="menu" onclick="menushow()"> <<< </span>
+    </header>
+
+    <div class="img_scroll index-banner" id="banner">
+        <div class="img_box banner-list" id="banner_list">
+            <a href="https://smilerm.github.io/dailyTask/fireText/index.html" class="banner3" target="_blank"></a>
+            <a href="https://smilerm.github.io/dailyTask/login-box/login.html" class="banner1" target="_blank"></a>
+            <a href="https://smilerm.github.io/dailyTask/mouse-petal/star.html" class="banner2" target="_blank" ></a>
+            <a href="https://smilerm.github.io/dailyTask/mouse-petal/index.html" class="banner3" target="_blank"></a>
+            <a href="https://smilerm.github.io/dailyTask/mouse-petal/index.html" class="banner1" target="_blank"></a>
+        </div>
+        <div class="slide" id="slideBtn">
+            <span index="1" class="active"></span>
+            <span index="2"></span>
+            <span index="3"></span>
+        </div>
+        <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+        <a href="javascript:;" id="next" class="arrow">&gt;</a>
+    </div>
+    <div class="box">
+
+        <div class="con con1">
+            <div class="con_left">
+                <p class="cleft_title">ABOUT SuShi</p>
+                <p>关于苏轼</p>
+                <span>苏轼是宋代著名的诗人、书法家、绘画家。
+                苏轼是宋代著名的诗人、书法家、绘画家。
+                苏轼是宋代著名的诗人、书法家、绘画家。苏轼是宋代著名的诗人、书法家、绘画家。
+                苏轼是宋代著名的诗人、书法家、绘画家。
+                </span>
+                <button class="more-btn">更多</button>
+            </div>
+            <div class="con_right">
+                <a href="javascript:;">
+                    <img src="images/bg.jpg"/>
+                </a>
+            </div>
+        </div>
+
+        <div class="con con2">
+            <p>Don't Be A Witness To Art,Be A Creator Of It.</p>
+            <div class="con_left myshadow"  value="文学课程">
+               <a href="javascript:;">
+                   <img src="images/bg.jpg"/>
+               </a>
+               <span>文学课程</span>
+            </div>
+            <div class="con_middle myshadow"  value="计算机课程">
+                <a href="javascript:;">
+                    <img src="images/bg.jpg"/>
+                </a>
+                <span>计算机课程</span>
+            </div>
+            <div class="con_right myshadow"  value="物理课程">
+                <a href="javascript:;">
+                    <img src="images/bg.jpg"/>
+                </a>
+                <span>物理课程</span>
+            </div>
+        </div>
+
+        <p class="con_title">中华诗词之美</p>
+        <div class="con con3">
+            <div class="con_left">
+                <p>古诗词</p>
+                <div class="imgbox">
+                    <a href="#">
+                       <img src="images/bg.jpg">
+                    </a>
+                </div>
+                <p>秋风词 ——唐代诗人&nbsp;&nbsp;李白</p>
+                <span>秋风清，秋月明。落叶聚还散，寒鸦栖复惊。相思相见知何日，此时此夜难为情。</span>
+            </div>
+            <div class="con_right">
+                <p>古诗词</p>
+                <div class="imgbox">
+                    <a href="#">
+                        <img src="images/bg.jpg">
+                    </a>
+                </div>
+                <p>定风波 ——宋代诗人&nbsp;&nbsp苏轼</p>
+                <span>秋风清，秋月明。落叶聚还散，寒鸦栖复惊。相思相见知何日，此时此夜难为情。</span>
+            </div>
+        </div>
+
+        <div class="con con4">
+            <div class="con_left">
+                <div class="imgbox">
+                   <a href="#">
+                     <img src="images/bg.jpg">
+                   </a>
+                </div>
+                <span>早知如此绊人心</span>
+            </div>
+            <div class="con_right">
+                <div class="imgbox">
+                    <a href="#">
+                        <img src="images/bg.jpg">
+                    </a>
+                </div>
+                <span>何如当初莫相识</span>
+            </div>
+        </div>
+    </div>
+
+<!-- 右边菜单栏 -->
+<div class="right_menu">
+    <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">一级</a></li>
+        <li><a href="#">二级</a></li>
+        <li><a href="#">三级</a></li>
+        <li><a href="#">登录</a></li>
+        <li><a href="#">注册</a></li>
+        <li><a href="#">联系</a></li>
+    </ul>
+    <span onclick="menuhidden()">×</span>
+</div>
+
+<footer>
+
+</footer>
+
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/menu_slideshow.js"></script>
+    <script type="text/javascript">
+        $(".con2 .myshadow img").mouseover(function(){
+             $(this).after("<span class='shadow-text'><i></i></span>");
+             $(this).next().css({position:"absolute",background:"rgba(220,220,220,0.3)",width:"100%",height:"300px",top:0,left:0});
+            $(this).parents(".myshadow").find("span:last").css({color:'#efa',"font-size":"2.2rem","text-shadow":"5px 5px 2px #ddd"});
+        });
+        $(".con2 .myshadow").mouseleave(function(){
+            $(this).find(".shadow-text").fadeOut(1000,0);
+            $(this).find("span:last").css({color:"white","font-size":"1.8rem","text-shadow":"0px 0px"});
+
+        });
+      /*  function show(){
+            $(".con2 .con_right").after("<span></span>");
+            $(".con2 .con_right").next().css({position:"absolute",background:"red",width:"33.3%",height:"300px"});
+        }*/
+
+
+    </script>
+
+</body>
+</html>

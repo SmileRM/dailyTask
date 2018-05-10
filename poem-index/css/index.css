@@ -1,0 +1,206 @@
+*{
+    padding:0;
+    margin:0;
+}
+/*body{
+    overflow-x: auto!important;
+    -ms-overflow-x: auto!important;
+}*/
+header{
+    width:100%;
+}
+header div:first-child{
+    width:100px;
+    margin:0 auto;
+}
+header div:first-child img{
+    width:100%;
+    height:100%;
+}
+.header_left{
+    width:100%;
+    height:30px;
+    font-family: 楷体;
+    font-size:1.4rem;
+    font-weight:600;
+}
+
+.header_left ul{
+    height:100%;
+    margin:20px auto 0;
+    text-align:center;  /*让行内元素、内联对象居中显示*/
+}
+.header_left ul li{
+/*    float:left;*/
+    display: inline-block;  /*不设浮动；设置成内联对象，会成为一排显示，可设置宽高*/
+    width:100px;
+    text-align:center;
+}
+.header_left ul li a{
+    color: #595959;
+}
+.header_left ul li:hover a{
+    color: #000000;
+    cursor: pointer;
+}
+.header_right{
+    position:absolute;
+    right:20px;
+    top:10px;
+}
+.header_right span {
+    margin-left:10px;
+    font-size:1.1rem;
+    font-family: 楷体;
+}
+.header_right span:hover{
+    color:orangered;
+    cursor:pointer;
+}
+header .menu{
+    display:none; /*隐藏菜单栏*/
+}
+.img_scroll{
+    width:100%;
+    height:800px;
+    overflow:hidden;
+}
+.img_scroll .img_box a{
+    display:block;
+    width:20%;
+    height:800px;
+}
+.box{
+    margin:80px 45px;
+    /*   background: #cccccc;*/
+}
+.con{
+    height:400px;
+    margin-top:30px;
+}
+.con_left{
+    width:48%;
+    height:100%;
+    float:left;
+}
+.con_right{
+    width:48%;
+    height:100%;
+    float:right;
+}
+.con img{
+    width:100%;
+    height:300px;
+}
+.con2 .con_left,.con2 .con_middle,.con2 .con_right{
+    width:31%;
+    height:100%;
+    float:left;
+    position:relative;
+    /*            opacity: 1;*/
+}
+/*.con2 .con_left:hover,.con2 .con_middle:hover,.con2 .con_right:hover{
+    opacity: 0.8;
+filter(alpha=80);
+}*/
+.con1 .con_left{
+    color:rgb(130,130,130);
+}
+.con1 .con_left p:nth-child(2){
+    font-size:1.1rem;
+    margin-top:3px;
+}
+.con1 .con_left span{
+    display:block;
+    margin:40px 0;
+    font-size:0.9rem;
+    line-height:26px;
+}
+.con1 .con_left .cleft_title{
+    font-size:2.2rem;
+    color:black;
+    font-weight: 600;
+}
+.con2 p{
+    color:rgb(140,140,140);
+    font-size:1.2rem;
+    text-align:center;
+    margin-bottom: 36px;
+}
+.con2 .con_middle{
+    margin:0 3.5%;
+}
+.con2  .myshadow span:last-child{
+    font-weight:600;
+    font-size:1.6rem;
+    color:white;
+    position:absolute;
+    top:130px;
+    left:38%;
+    transition:all 1s ease-in-out;
+}
+.con3,.con4{
+    width:80%;
+    margin:0 auto;
+}
+.con_title{
+    font-size:1.6rem;
+    text-align:center;
+    margin-bottom:30px;
+    font-weight:600;
+}
+.con3 .con_left,.con3 .con_right{
+    width:420px;
+}
+.con4 .con_left,.con4 .con_right{
+    width:420px;
+}
+.con3 .imgbox,.con4 .imgbox{
+    width:420px;
+}
+.con3 > div .imgbox,.con4 > div .imgbox{
+    overflow: hidden;
+}
+.con3 > div img,.con4 > div img{
+    width:100%;
+    height:230px;
+    transition:all 0.8s; /*图片放大效果动画*/
+.}
+.con3 > div img:hover,.con4 > div img:hover{
+    transform:scale(1.1);  /*图片放大效果*/
+}
+.con_left > p:first-child,.con_right> p:first-child{
+    font-size:1.2rem;
+    font-weight:600;
+}
+.con_left > p:nth-of-type(2), .con_right > p:nth-of-type(2){
+    color:rgb(130,130,130);
+    margin:5px 0 25px 0;
+}
+.con_left > span,.con_right > span{
+    font-size:0.8rem;
+    color:rgb(130,130,130);
+}
+.right_menu{
+  display:none;
+}
+
+/*滑动后头部固定*/
+.bigheader{
+    position:fixed;
+    background:white;
+    z-index:99;
+    height:100px;
+}
+.bigheader div:first-child{
+    float:left;
+    margin-left:30px;
+}
+.bigheader .header_left ul{
+    margin-top:0px;
+}
+.bigheader .header_left li{
+    display:inline-block;
+    line-height:100px;
+    margin:0;
+}
